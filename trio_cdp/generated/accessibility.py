@@ -40,16 +40,35 @@ async def enable() -> None:
     return await session.execute(cdp.accessibility.enable())
 
 
-async def get_full_ax_tree() -> typing.List[AXNode]:
+async def get_child_ax_nodes(
+        id_: AXNodeId
+    ) -> typing.List[AXNode]:
     '''
-    Fetches the entire accessibility tree
+    Fetches a particular accessibility node by AXNodeId.
+    Requires ``enable()`` to have been called previously.
 
     **EXPERIMENTAL**
 
+    :param id_:
+    :returns: 
+    '''
+    session = get_session_context('accessibility.get_child_ax_nodes')
+    return await session.execute(cdp.accessibility.get_child_ax_nodes(id_))
+
+
+async def get_full_ax_tree(
+        max_depth: typing.Optional[int] = None
+    ) -> typing.List[AXNode]:
+    '''
+    Fetches the entire accessibility tree for the root Document
+
+    **EXPERIMENTAL**
+
+    :param max_depth: *(Optional)* The maximum depth at which descendants of the root node should be retrieved. If omitted, the full tree is returned.
     :returns: 
     '''
     session = get_session_context('accessibility.get_full_ax_tree')
-    return await session.execute(cdp.accessibility.get_full_ax_tree())
+    return await session.execute(cdp.accessibility.get_full_ax_tree(max_depth))
 
 
 async def get_partial_ax_tree(
@@ -71,3 +90,30 @@ async def get_partial_ax_tree(
     '''
     session = get_session_context('accessibility.get_partial_ax_tree')
     return await session.execute(cdp.accessibility.get_partial_ax_tree(node_id, backend_node_id, object_id, fetch_relatives))
+
+
+async def query_ax_tree(
+        node_id: typing.Optional[cdp.dom.NodeId] = None,
+        backend_node_id: typing.Optional[cdp.dom.BackendNodeId] = None,
+        object_id: typing.Optional[cdp.runtime.RemoteObjectId] = None,
+        accessible_name: typing.Optional[str] = None,
+        role: typing.Optional[str] = None
+    ) -> typing.List[AXNode]:
+    '''
+    Query a DOM node's accessibility subtree for accessible name and role.
+    This command computes the name and role for all nodes in the subtree, including those that are
+    ignored for accessibility, and returns those that mactch the specified name and role. If no DOM
+    node is specified, or the DOM node does not exist, the command returns an error. If neither
+    ``accessibleName`` or ``role`` is specified, it returns all the accessibility nodes in the subtree.
+
+    **EXPERIMENTAL**
+
+    :param node_id: *(Optional)* Identifier of the node for the root to query.
+    :param backend_node_id: *(Optional)* Identifier of the backend node for the root to query.
+    :param object_id: *(Optional)* JavaScript object id of the node wrapper for the root to query.
+    :param accessible_name: *(Optional)* Find nodes with this computed name.
+    :param role: *(Optional)* Find nodes with this computed role.
+    :returns: A list of ``Accessibility.AXNode`` matching the specified attributes, including nodes that are ignored for accessibility.
+    '''
+    session = get_session_context('accessibility.query_ax_tree')
+    return await session.execute(cdp.accessibility.query_ax_tree(node_id, backend_node_id, object_id, accessible_name, role))
