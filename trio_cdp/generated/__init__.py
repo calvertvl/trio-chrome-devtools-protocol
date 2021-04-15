@@ -30,11 +30,13 @@ from . import inspector
 from . import io
 from . import layer_tree
 from . import log
+from . import media
 from . import memory
 from . import network
 from . import overlay
 from . import page
 from . import performance
+from . import performance_timeline
 from . import profiler
 from . import runtime
 from . import schema
