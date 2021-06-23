@@ -213,7 +213,7 @@ async def reset_permissions(
 
 async def set_dock_tile(
         badge_label: typing.Optional[str] = None,
-        image: typing.Optional[bytes] = None
+        image: typing.Optional[str] = None
     ) -> None:
     '''
     Set dock tile details, platform-specific.

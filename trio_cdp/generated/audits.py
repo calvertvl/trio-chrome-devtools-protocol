@@ -76,7 +76,7 @@ async def get_encoded_response(
         encoding: str,
         quality: typing.Optional[float] = None,
         size_only: typing.Optional[bool] = None
-    ) -> typing.Tuple[typing.Optional[bytes], int, int]:
+    ) -> typing.Tuple[typing.Optional[str], int, int]:
     '''
     Returns the response body and size if it were re-encoded with the specified settings. Only
     applies to images.

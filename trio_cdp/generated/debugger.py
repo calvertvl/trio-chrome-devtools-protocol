@@ -117,7 +117,7 @@ async def get_possible_breakpoints(
 
 async def get_script_source(
         script_id: cdp.runtime.ScriptId
-    ) -> typing.Tuple[str, typing.Optional[bytes]]:
+    ) -> typing.Tuple[str, typing.Optional[str]]:
     '''
     Returns source for the script with given id.
 
@@ -148,7 +148,7 @@ async def get_stack_trace(
 
 async def get_wasm_bytecode(
         script_id: cdp.runtime.ScriptId
-    ) -> bytes:
+    ) -> str:
     '''
 This command is deprecated. Use getScriptSource instead.
 
