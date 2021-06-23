@@ -71,7 +71,7 @@ from cdp.page import (
 
 async def add_compilation_cache(
         url: str,
-        data: bytes
+        data: str
     ) -> None:
     '''
     Seeds compilation cache for given url. Compilation cache does not survive
@@ -134,7 +134,7 @@ async def capture_screenshot(
         clip: typing.Optional[Viewport] = None,
         from_surface: typing.Optional[bool] = None,
         capture_beyond_viewport: typing.Optional[bool] = None
-    ) -> bytes:
+    ) -> str:
     '''
     Capture page screenshot.
 
@@ -375,7 +375,7 @@ async def get_layout_metrics() -> typing.Tuple[LayoutViewport, VisualViewport, c
     return await session.execute(cdp.page.get_layout_metrics())
 
 
-async def get_manifest_icons() -> typing.Optional[bytes]:
+async def get_manifest_icons() -> typing.Optional[str]:
     '''
 
 
@@ -515,7 +515,7 @@ async def print_to_pdf(
         footer_template: typing.Optional[str] = None,
         prefer_css_page_size: typing.Optional[bool] = None,
         transfer_mode: typing.Optional[str] = None
-    ) -> typing.Tuple[bytes, typing.Optional[cdp.io.StreamHandle]]:
+    ) -> typing.Tuple[str, typing.Optional[cdp.io.StreamHandle]]:
     '''
     Print page as PDF.
 

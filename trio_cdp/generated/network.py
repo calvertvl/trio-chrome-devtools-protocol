@@ -164,7 +164,7 @@ async def clear_browser_cookies() -> None:
 async def continue_intercepted_request(
         interception_id: InterceptionId,
         error_reason: typing.Optional[ErrorReason] = None,
-        raw_response: typing.Optional[bytes] = None,
+        raw_response: typing.Optional[str] = None,
         url: typing.Optional[str] = None,
         method: typing.Optional[str] = None,
         post_data: typing.Optional[str] = None,

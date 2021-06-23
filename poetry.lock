@@ -116,7 +116,7 @@ reference = "wmc"
 
 [[package]]
 name = "chrome-devtools-protocol"
-version = "0.5.2+wmc"
+version = "0.5.3+wmc"
 description = "Python type wrappers for Chrome DevTools Protocol (CDP)"
 category = "main"
 optional = false
@@ -970,7 +970,7 @@ reference = "wmc"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "a358836c33ae91d35b3cfe6985b09f586ed324bcf77449519bbf727e0e134890"
+content-hash = "cbe8753dd57d539e0ac2f74a248aecd5a50c2ea426ae14a76e8b1a33626aeb0b"
 
 [metadata.files]
 alabaster = [
@@ -1041,8 +1041,8 @@ chardet = [
     {file = "chardet-4.0.0.tar.gz", hash = "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"},
 ]
 chrome-devtools-protocol = [
-    {file = "chrome-devtools-protocol-0.5.2+wmc.tar.gz", hash = "sha256:12a03391fb50becd9f97c9c0a2e5b5cd414a15bf92814e9ef95621b76c8d8874"},
-    {file = "chrome_devtools_protocol-0.5.2+wmc-py3-none-any.whl", hash = "sha256:87e3239566066983ef06b6e2b2fe46440f9478acb7199c26c1cce0019f4ab726"},
+    {file = "chrome-devtools-protocol-0.5.3+wmc.tar.gz", hash = "sha256:960165f29c3824956cd668c043d15bec0b78bf12a84e7548bb6afc7a43249b00"},
+    {file = "chrome_devtools_protocol-0.5.3+wmc-py3-none-any.whl", hash = "sha256:d93caf5fda11e1d144facfeb2b659bb1c2643b8483267a28a4b763000883355b"},
 ]
 colorama = [
     {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},

@@ -20,7 +20,7 @@ async def begin_frame(
         interval: typing.Optional[float] = None,
         no_display_updates: typing.Optional[bool] = None,
         screenshot: typing.Optional[ScreenshotParams] = None
-    ) -> typing.Tuple[bool, typing.Optional[bytes]]:
+    ) -> typing.Tuple[bool, typing.Optional[str]]:
     '''
     Sends a BeginFrame to the target and returns when the frame was completed. Optionally captures a
     screenshot from the resulting frame. Requires that the target was created with enabled
