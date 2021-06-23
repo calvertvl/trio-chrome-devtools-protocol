@@ -59,7 +59,6 @@ this method while metrics collection is enabled returns an error.
 
 :param time_domain: Time domain
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('performance.set_time_domain')

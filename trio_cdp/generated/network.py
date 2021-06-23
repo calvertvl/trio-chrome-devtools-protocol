@@ -101,7 +101,6 @@ Tells whether clearing browser cache is supported.
 
 :returns: True if browser cache can be cleared.
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('network.can_clear_browser_cache')
@@ -116,7 +115,6 @@ Tells whether clearing browser cookies is supported.
 
 :returns: True if browser cookies can be cleared.
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('network.can_clear_browser_cookies')
@@ -130,7 +128,6 @@ Tells whether emulation of network conditions is supported.
 .. deprecated:: 1.3
 
 :returns: True if emulation of network conditions is supported.
-
 
 .. deprecated:: 1.3
 '''
@@ -167,7 +164,7 @@ async def clear_browser_cookies() -> None:
 async def continue_intercepted_request(
         interception_id: InterceptionId,
         error_reason: typing.Optional[ErrorReason] = None,
-        raw_response: typing.Optional[str] = None,
+        raw_response: typing.Optional[bytes] = None,
         url: typing.Optional[str] = None,
         method: typing.Optional[str] = None,
         post_data: typing.Optional[str] = None,
@@ -187,13 +184,12 @@ Deprecated, use Fetch.continueRequest, Fetch.fulfillRequest and Fetch.failReques
 
 :param interception_id:
 :param error_reason: *(Optional)* If set this causes the request to fail with the given reason. Passing ```Aborted```` for requests marked with ````isNavigationRequest``` also cancels the navigation. Must not be set in response to an authChallenge.
-:param raw_response: *(Optional)* If set the requests completes using with the provided base64 encoded raw response, including HTTP status line and headers etc... Must not be set in response to an authChallenge. (Encoded as a base64 string when passed over JSON)
+:param raw_response: *(Optional)* If set the requests completes using with the provided base64 encoded raw response, including HTTP status line and headers etc... Must not be set in response to an authChallenge.
 :param url: *(Optional)* If set the request url will be modified in a way that's not observable by page. Must not be set in response to an authChallenge.
 :param method: *(Optional)* If set this allows the request method to be overridden. Must not be set in response to an authChallenge.
 :param post_data: *(Optional)* If set this allows postData to be set. Must not be set in response to an authChallenge.
 :param headers: *(Optional)* If set this allows the request headers to be changed. Must not be set in response to an authChallenge.
 :param auth_challenge_response: *(Optional)* Response to a requestIntercepted with an authChallenge. Must not be set otherwise.
-
 
 .. deprecated:: 1.3
 '''
@@ -578,7 +574,6 @@ Deprecated, please use Fetch.enable instead.
 **EXPERIMENTAL**
 
 :param patterns: Requests matching any of these patterns will be forwarded and wait for the corresponding continueInterceptedRequest call.
-
 
 .. deprecated:: 1.3
 '''

@@ -78,7 +78,7 @@ async def start(
         stream_format: typing.Optional[StreamFormat] = None,
         stream_compression: typing.Optional[StreamCompression] = None,
         trace_config: typing.Optional[TraceConfig] = None,
-        perfetto_config: typing.Optional[str] = None,
+        perfetto_config: typing.Optional[bytes] = None,
         tracing_backend: typing.Optional[TracingBackend] = None
     ) -> None:
     '''
@@ -91,7 +91,7 @@ async def start(
     :param stream_format: *(Optional)* Trace data format to use. This only applies when using ````ReturnAsStream```` transfer mode (defaults to ````json````).
     :param stream_compression: *(Optional)* Compression format to use. This only applies when using ````ReturnAsStream```` transfer mode (defaults to ````none````)
     :param trace_config: *(Optional)*
-    :param perfetto_config: *(Optional)* Base64-encoded serialized perfetto.protos.TraceConfig protobuf message When specified, the parameters ````categories````, ````options````, ````traceConfig```` are ignored. (Encoded as a base64 string when passed over JSON)
+    :param perfetto_config: *(Optional)* Base64-encoded serialized perfetto.protos.TraceConfig protobuf message When specified, the parameters ````categories````, ````options````, ````traceConfig```` are ignored.
     :param tracing_backend: *(Optional)* Backend type (defaults to ````auto```)
     '''
     session = get_session_context('tracing.start')

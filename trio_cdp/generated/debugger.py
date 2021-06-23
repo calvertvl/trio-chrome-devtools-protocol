@@ -117,7 +117,7 @@ async def get_possible_breakpoints(
 
 async def get_script_source(
         script_id: cdp.runtime.ScriptId
-    ) -> typing.Tuple[str, typing.Optional[str]]:
+    ) -> typing.Tuple[str, typing.Optional[bytes]]:
     '''
     Returns source for the script with given id.
 
@@ -125,7 +125,7 @@ async def get_script_source(
     :returns: A tuple with the following items:
 
         0. **scriptSource** - Script source (empty in case of Wasm bytecode).
-        1. **bytecode** - *(Optional)* Wasm bytecode. (Encoded as a base64 string when passed over JSON)
+        1. **bytecode** - *(Optional)* Wasm bytecode.
     '''
     session = get_session_context('debugger.get_script_source')
     return await session.execute(cdp.debugger.get_script_source(script_id))
@@ -148,15 +148,14 @@ async def get_stack_trace(
 
 async def get_wasm_bytecode(
         script_id: cdp.runtime.ScriptId
-    ) -> str:
+    ) -> bytes:
     '''
 This command is deprecated. Use getScriptSource instead.
 
 .. deprecated:: 1.3
 
 :param script_id: Id of the Wasm script to get source for.
-:returns: Script source. (Encoded as a base64 string when passed over JSON)
-
+:returns: Script source.
 
 .. deprecated:: 1.3
 '''
@@ -183,7 +182,6 @@ async def pause_on_async_call(
 **EXPERIMENTAL**
 
 :param parent_stack_trace_id: Debugger will pause when async call with given stack trace is started.
-
 
 .. deprecated:: 1.3
 '''

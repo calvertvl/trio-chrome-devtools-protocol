@@ -26,7 +26,7 @@ Tor proxy for network traffic.
 
 .. code::
 
-    $ wget https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Mac%2F678035%2Fchrome-mac.zip?generation=1563322360871926&alt=media
+    $ wget https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Mac%2F870776%2Fchrome-mac.zip?generation=1563322360871926&alt=media
     $ unzip chrome-mac.zip && rm chrome-mac.zip
     $ ./chrome-mac/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9000
     > DevTools listening on ws://127.0.0.1:9000/devtools/browser/<DEV_SESSION_GUID>
@@ -51,7 +51,7 @@ This sets up the chrome browser in a specific version, and runs it in debug mode
 
 .. code::
 
-    $ wget https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/678025/chrome-linux.zip
+    $ wget https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/870763/chrome-linux.zip
     $ unzip chrome-linux.zip && rm chrome-linux.zip
     $ ./chrome-linux/chrome --remote-debugging-port=9000
     > DevTools listening on ws://127.0.0.1:9000/devtools/browser/<DEV_SESSION_GUID>

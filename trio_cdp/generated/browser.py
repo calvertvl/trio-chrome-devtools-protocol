@@ -213,7 +213,7 @@ async def reset_permissions(
 
 async def set_dock_tile(
         badge_label: typing.Optional[str] = None,
-        image: typing.Optional[str] = None
+        image: typing.Optional[bytes] = None
     ) -> None:
     '''
     Set dock tile details, platform-specific.
@@ -221,7 +221,7 @@ async def set_dock_tile(
     **EXPERIMENTAL**
 
     :param badge_label: *(Optional)*
-    :param image: *(Optional)* Png encoded image. (Encoded as a base64 string when passed over JSON)
+    :param image: *(Optional)* Png encoded image.
     '''
     session = get_session_context('browser.set_dock_tile')
     return await session.execute(cdp.browser.set_dock_tile(badge_label, image))

@@ -13,8 +13,6 @@ from cdp.audits import (
     AffectedCookie,
     AffectedFrame,
     AffectedRequest,
-    AttributionReportingIssueDetails,
-    AttributionReportingIssueType,
     BlockedByResponseIssueDetails,
     BlockedByResponseReason,
     ContentSecurityPolicyIssueDetails,
@@ -78,7 +76,7 @@ async def get_encoded_response(
         encoding: str,
         quality: typing.Optional[float] = None,
         size_only: typing.Optional[bool] = None
-    ) -> typing.Tuple[typing.Optional[str], int, int]:
+    ) -> typing.Tuple[typing.Optional[bytes], int, int]:
     '''
     Returns the response body and size if it were re-encoded with the specified settings. Only
     applies to images.
@@ -89,7 +87,7 @@ async def get_encoded_response(
     :param size_only: *(Optional)* Whether to only return the size information (defaults to false).
     :returns: A tuple with the following items:
 
-        0. **body** - *(Optional)* The encoded body as a base64 string. Omitted if sizeOnly is true. (Encoded as a base64 string when passed over JSON)
+        0. **body** - *(Optional)* The encoded body as a base64 string. Omitted if sizeOnly is true.
         1. **originalSize** - Size before re-encoding.
         2. **encodedSize** - Size after re-encoding.
     '''

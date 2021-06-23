@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "trio-chrome-devtools-protocol"
 packages = [{include = "trio_cdp"}]
-version = "0.7.1+wmc"
+version = "0.7.2+wmc"
 description = "Trio driver for Chrome DevTools Protocol (CDP)"
 authors = ["Mark E. Haase <mehaase@gmail.com>", "Brian Mackintosh <bcmackintosh@gmail.com>"]
 license = "MIT"
@@ -13,14 +13,19 @@ classifiers = [
     "Topic :: Internet"
 ]
 
+[[tool.poetry.source]]
+name = "wmc"
+url = "http://devpi-server:3141/vcalvert/dev/+simple"
+
 [tool.poetry.dependencies]
 python = "^3.7"
-chrome-devtools-protocol = "^0.4.0"
+chrome-devtools-protocol = "0.5.2+wmc"
 trio = ">=0.13"
 trio_websocket = "^0.8.0"
+mypy = "^0.910"
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.770"
+mypy = "^0.910"
 pytest = "^5.4.1"
 pytest-cov = "^2.8.1"
 pytest-trio = ">=0.5.2"
