@@ -239,7 +239,6 @@ Use DOMSnapshot.captureSnapshot instead.
 :param pierce: *(Optional)* Whether or not iframes and shadow roots should be traversed when returning the subtree (default is false).
 :returns: Resulting node.
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('dom.get_flattened_document')

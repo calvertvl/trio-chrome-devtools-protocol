@@ -226,7 +226,6 @@ and crbug.com/991325.
 :param session_id: *(Optional)* Identifier of the session.
 :param target_id: **(DEPRECATED)** *(Optional)* Deprecated.
 
-
 .. deprecated:: 1.3
 '''
     connection = get_connection_context('target.send_message_to_target')

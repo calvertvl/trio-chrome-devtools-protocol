@@ -277,7 +277,6 @@ Overrides value returned by the javascript navigator object.
 
 :param platform: The platform navigator.platform should return.
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('emulation.set_navigator_overrides')
@@ -409,7 +408,6 @@ on Android.
 
 :param width: Frame width (DIP).
 :param height: Frame height (DIP).
-
 
 .. deprecated:: 1.3
 '''

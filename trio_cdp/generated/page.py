@@ -52,7 +52,6 @@ from cdp.page import (
     LoadEventFired,
     NavigatedWithinDocument,
     NavigationEntry,
-    NavigationType,
     PermissionsPolicyBlockLocator,
     PermissionsPolicyBlockReason,
     PermissionsPolicyFeature,
@@ -72,7 +71,7 @@ from cdp.page import (
 
 async def add_compilation_cache(
         url: str,
-        data: str
+        data: bytes
     ) -> None:
     '''
     Seeds compilation cache for given url. Compilation cache does not survive
@@ -81,7 +80,7 @@ async def add_compilation_cache(
     **EXPERIMENTAL**
 
     :param url:
-    :param data: Base64-encoded data (Encoded as a base64 string when passed over JSON)
+    :param data: Base64-encoded data
     '''
     session = get_session_context('page.add_compilation_cache')
     return await session.execute(cdp.page.add_compilation_cache(url, data))
@@ -99,7 +98,6 @@ Deprecated, please use addScriptToEvaluateOnNewDocument instead.
 
 :param script_source:
 :returns: Identifier of the added script.
-
 
 .. deprecated:: 1.3
 '''
@@ -136,7 +134,7 @@ async def capture_screenshot(
         clip: typing.Optional[Viewport] = None,
         from_surface: typing.Optional[bool] = None,
         capture_beyond_viewport: typing.Optional[bool] = None
-    ) -> str:
+    ) -> bytes:
     '''
     Capture page screenshot.
 
@@ -145,7 +143,7 @@ async def capture_screenshot(
     :param clip: *(Optional)* Capture the screenshot of a given region only.
     :param from_surface: **(EXPERIMENTAL)** *(Optional)* Capture the screenshot from the surface, rather than the view. Defaults to true.
     :param capture_beyond_viewport: **(EXPERIMENTAL)** *(Optional)* Capture the screenshot beyond the viewport. Defaults to false.
-    :returns: Base64-encoded image data. (Encoded as a base64 string when passed over JSON)
+    :returns: Base64-encoded image data.
     '''
     session = get_session_context('page.capture_screenshot')
     return await session.execute(cdp.page.capture_screenshot(format_, quality, clip, from_surface, capture_beyond_viewport))
@@ -185,7 +183,6 @@ Clears the overriden device metrics.
 
 **EXPERIMENTAL**
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('page.clear_device_metrics_override')
@@ -200,7 +197,6 @@ Clears the overridden Device Orientation.
 
 **EXPERIMENTAL**
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('page.clear_device_orientation_override')
@@ -212,7 +208,6 @@ async def clear_geolocation_override() -> None:
 Clears the overriden Geolocation Position and Error.
 
 .. deprecated:: 1.3
-
 
 .. deprecated:: 1.3
 '''
@@ -270,7 +265,6 @@ Deletes browser cookie with given name, domain and path.
 
 :param cookie_name: Name of the cookie to remove.
 :param url: URL to match cooke domain and path.
-
 
 .. deprecated:: 1.3
 '''
@@ -336,7 +330,6 @@ information in the ``cookies`` field.
 
 :returns: Array of cookie objects.
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('page.get_cookies')
@@ -382,7 +375,7 @@ async def get_layout_metrics() -> typing.Tuple[LayoutViewport, VisualViewport, c
     return await session.execute(cdp.page.get_layout_metrics())
 
 
-async def get_manifest_icons() -> typing.Optional[str]:
+async def get_manifest_icons() -> typing.Optional[bytes]:
     '''
 
 
@@ -522,7 +515,7 @@ async def print_to_pdf(
         footer_template: typing.Optional[str] = None,
         prefer_css_page_size: typing.Optional[bool] = None,
         transfer_mode: typing.Optional[str] = None
-    ) -> typing.Tuple[str, typing.Optional[cdp.io.StreamHandle]]:
+    ) -> typing.Tuple[bytes, typing.Optional[cdp.io.StreamHandle]]:
     '''
     Print page as PDF.
 
@@ -544,7 +537,7 @@ async def print_to_pdf(
     :param transfer_mode: **(EXPERIMENTAL)** *(Optional)* return as stream
     :returns: A tuple with the following items:
 
-        0. **data** - Base64-encoded pdf data. Empty if `` returnAsStream` is specified. (Encoded as a base64 string when passed over JSON)
+        0. **data** - Base64-encoded pdf data. Empty if `` returnAsStream` is specified.
         1. **stream** - *(Optional)* A handle of the stream that holds resulting PDF data.
     '''
     session = get_session_context('page.print_to_pdf')
@@ -598,7 +591,6 @@ Deprecated, please use removeScriptToEvaluateOnNewDocument instead.
 **EXPERIMENTAL**
 
 :param identifier:
-
 
 .. deprecated:: 1.3
 '''
@@ -727,7 +719,6 @@ query results).
 :param screen_orientation: *(Optional)* Screen orientation override.
 :param viewport: *(Optional)* The viewport dimensions and scale. If not set, the override is cleared.
 
-
 .. deprecated:: 1.3
 '''
     session = get_session_context('page.set_device_metrics_override')
@@ -749,7 +740,6 @@ Overrides the Device Orientation.
 :param alpha: Mock alpha
 :param beta: Mock beta
 :param gamma: Mock gamma
-
 
 .. deprecated:: 1.3
 '''
@@ -784,7 +774,6 @@ Set the behavior when downloading a file.
 
 :param behavior: Whether to allow all or deny all download requests, or use default Chrome behavior if available (otherwise deny).
 :param download_path: *(Optional)* The default path to save downloaded files to. This is requred if behavior is set to 'allow'
-
 
 .. deprecated:: 1.3
 '''
@@ -834,7 +823,6 @@ unavailable.
 :param latitude: *(Optional)* Mock latitude
 :param longitude: *(Optional)* Mock longitude
 :param accuracy: *(Optional)* Mock accuracy
-
 
 .. deprecated:: 1.3
 '''
@@ -900,7 +888,6 @@ Toggles mouse event-based touch event emulation.
 
 :param enabled: Whether the touch event emulation should be enabled.
 :param configuration: *(Optional)* Touch/gesture events configuration. Default: current platform.
-
 
 .. deprecated:: 1.3
 '''

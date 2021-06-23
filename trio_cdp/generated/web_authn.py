@@ -77,7 +77,7 @@ async def enable() -> None:
 
 async def get_credential(
         authenticator_id: AuthenticatorId,
-        credential_id: str
+        credential_id: bytes
     ) -> Credential:
     '''
     Returns a single credential stored in the given virtual authenticator that
@@ -106,7 +106,7 @@ async def get_credentials(
 
 async def remove_credential(
         authenticator_id: AuthenticatorId,
-        credential_id: str
+        credential_id: bytes
     ) -> None:
     '''
     Removes a credential from the authenticator.
