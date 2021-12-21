@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "trio-chrome-devtools-protocol"
 packages = [{include = "trio_cdp"}]
-version = "0.7.0"
+version = "0.7.1+wmc"
 description = "Trio driver for Chrome DevTools Protocol (CDP)"
 authors = ["Mark E. Haase <mehaase@gmail.com>", "Brian Mackintosh <bcmackintosh@gmail.com>"]
 license = "MIT"
@@ -16,14 +16,14 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 chrome-devtools-protocol = "^0.4.0"
-trio = ">=0.13,<0.18"
+trio = ">=0.13"
 trio_websocket = "^0.8.0"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.770"
 pytest = "^5.4.1"
 pytest-cov = "^2.8.1"
-pytest-trio = ">=0.5.2,<0.7"
+pytest-trio = ">=0.5.2"
 sphinx = "^3.0.1"
 sphinx-rtd-theme = "^0.4.3"
 sphinx-autodoc-typehints = "^1.10.3"
